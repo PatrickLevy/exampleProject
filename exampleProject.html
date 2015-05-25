@@ -1,0 +1,45 @@
+<head>
+  <title>exampleProject</title>
+</head>
+
+<template name="home">
+  <h1>This is the home page</h1>
+  {{ > menu}}
+  {{ > exampleTemplate}}
+</template>
+
+<template name="pageTwo">
+  <h1>This is the second page</h1>
+  {{ > menu}}
+  {{ > exampleTemplate}}
+</template>
+
+<template name="menu">
+{{ > loginButtons}}
+  <ul>
+    <li>
+      <a href="/">Page 1</a>
+    </li>
+    <li>
+      <a href="/page2">Page 2</a>
+    </li>
+  </ul>
+</template>
+
+<template name="exampleTemplate">
+  <form class="newName">
+    <input type="text" name="text" placeholder="Name">
+    <input type="submit" value="Submit">
+  </form>
+  Hello <br>
+  You can only view names in the database if you are logged in. <br>
+  {{#if currentUser}}
+    {{#each showNames}}
+      {{storedName}} <br>
+    {{/each}}
+  {{/if}}
+</template>
+
+
+
+
